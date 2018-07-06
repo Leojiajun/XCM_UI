@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="10771" started-at="2018-07-06T11:57:23Z" finished-at="2018-07-06T11:57:34Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="10771" started-at="2018-07-06T11:57:23Z" finished-at="2018-07-06T11:57:34Z">
+      <class name="com.xcm.Leo.cases.Login">
+        <test-method status="PASS" signature="loginXcm()[pri:0, instance:com.xcm.Leo.cases.Login@6767c1fc]" name="loginXcm" duration-ms="9813" started-at="2018-07-06T19:57:23Z" finished-at="2018-07-06T19:57:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginXcm -->
+        <test-method status="PASS" signature="release()[pri:0, instance:com.xcm.Leo.cases.Login@6767c1fc]" name="release" is-config="true" duration-ms="943" started-at="2018-07-06T19:57:33Z" finished-at="2018-07-06T19:57:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- release -->
+      </class> <!-- com.xcm.Leo.cases.Login -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
