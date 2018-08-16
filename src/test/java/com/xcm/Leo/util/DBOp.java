@@ -52,19 +52,19 @@ public class DBOp {
 	
 	//获取Css
 	public String getLocatorCss(String locatorname){
-		String Css = null;
+		String css = null;
 		try {
 			rsq = stat.executeQuery("select * from "+tablename+""
 					+ " where WebElementName = '"+locatorname+"';");
 			while(rsq.next()){
-				Css = rsq.getString("Css");
+				css = rsq.getString("Css");
 			}
 			rsq.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return Css;
+		return css;
 		
 	}
 	

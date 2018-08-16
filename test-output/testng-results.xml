@@ -1,21 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="10771" started-at="2018-07-06T11:57:23Z" finished-at="2018-07-06T11:57:34Z">
+  <suite name="Default suite" duration-ms="7255" started-at="2018-08-06T07:36:40Z" finished-at="2018-08-06T07:36:47Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="10771" started-at="2018-07-06T11:57:23Z" finished-at="2018-07-06T11:57:34Z">
-      <class name="com.xcm.Leo.cases.Login">
-        <test-method status="PASS" signature="loginXcm()[pri:0, instance:com.xcm.Leo.cases.Login@6767c1fc]" name="loginXcm" duration-ms="9813" started-at="2018-07-06T19:57:23Z" finished-at="2018-07-06T19:57:33Z">
+    <test name="Default test" duration-ms="7255" started-at="2018-08-06T07:36:40Z" finished-at="2018-08-06T07:36:47Z">
+      <class name="com.xcm.Leo.integration.BaseTest">
+        <test-method status="PASS" signature="conect()[pri:0, instance:com.xcm.Leo.integration.BaseTest@64bfbc86]" name="conect" is-config="true" duration-ms="8" started-at="2018-08-06T15:36:40Z" finished-at="2018-08-06T15:36:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginXcm -->
-        <test-method status="PASS" signature="release()[pri:0, instance:com.xcm.Leo.cases.Login@6767c1fc]" name="release" is-config="true" duration-ms="943" started-at="2018-07-06T19:57:33Z" finished-at="2018-07-06T19:57:34Z">
+        </test-method> <!-- conect -->
+        <test-method status="PASS" signature="loadDriver()[pri:0, instance:com.xcm.Leo.integration.BaseTest@64bfbc86]" name="loadDriver" is-config="true" duration-ms="4390" started-at="2018-08-06T15:36:40Z" finished-at="2018-08-06T15:36:44Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- release -->
-      </class> <!-- com.xcm.Leo.cases.Login -->
+        </test-method> <!-- loadDriver -->
+        <test-method status="FAIL" signature="loginXCM()[pri:0, instance:com.xcm.Leo.integration.BaseTest@64bfbc86]" name="loginXCM" duration-ms="1596" started-at="2018-08-06T15:36:44Z" finished-at="2018-08-06T15:36:46Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.xcm.Leo.util.Tools.getdbData(Tools.java:203)
+	at com.xcm.Leo.util.Tools.waitForElementPresent(Tools.java:219)
+	at com.xcm.Leo.integration.BaseTest.loginXCM(BaseTest.java:36)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginXCM -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.xcm.Leo.integration.BaseTest@64bfbc86]" name="closeBrowser" is-config="true" duration-ms="931" started-at="2018-08-06T15:36:46Z" finished-at="2018-08-06T15:36:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method status="FAIL" signature="closeDB()[pri:0, instance:com.xcm.Leo.integration.BaseTest@64bfbc86]" name="closeDB" is-config="true" duration-ms="0" started-at="2018-08-06T15:36:47Z" finished-at="2018-08-06T15:36:47Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.xcm.Leo.util.Tools.shutdown(Tools.java:191)
+	at com.xcm.Leo.integration.BaseTest.closeDB(BaseTest.java:56)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:510)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:211)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:220)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:774)
+	at org.testng.TestRunner.run(TestRunner.java:624)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1215)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.run(TestNG.java:1048)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDB -->
+      </class> <!-- com.xcm.Leo.integration.BaseTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

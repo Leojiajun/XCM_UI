@@ -41,7 +41,6 @@ public class Browsers {
 				
 				firefoxprofile.setPreference("extensions.firebug.currentVersion", "2.0.17");
 				firefoxprofile.setPreference("extensions.firebug.allPagesActivation", "on");
-				
 				driver = new FirefoxDriver(firefoxprofile);
 				driver.manage().window().maximize();
 				break;

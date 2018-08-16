@@ -26,7 +26,7 @@ public class PageBase {
 		try{	
 			we = driver.findElement(By.xpath(db.getLocatorXpath(loc)));
 		}catch(Exception e){
-			if(db.getLocatorXpath(loc)!=null){
+			if(db.getLocatorCss(loc)!=null){
 			we = driver.findElement(By.cssSelector(db.getLocatorCss(loc)));
 			}
 		}

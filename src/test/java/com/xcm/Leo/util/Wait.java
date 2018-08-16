@@ -9,24 +9,24 @@ public class Wait {
 	private WebDriver driver;
 	private int timeout=10;
 	
-	//���캯����new����ʹ�ã�
+	//构造函数
 	public Wait(WebDriver driver){
 		this.driver=driver;
 	}
 	
-	//�ȴ�Ԫ�س���
+	//等待元素出现
 	public void waitForElementPresent(String locator){
 		(new WebDriverWait(driver,timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 		
 	}
 
-	//�ȴ�Ԫ���ܲ���
+	//等待元素可操作
 	public void waitForElementIsEnable(String locator){
 		(new WebDriverWait(driver,timeout)).until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 		
 	}
 	
-	//����һ��ʱ��
+	//等待时间
 	public void waitFor(long timeout){
 		try {
 			Thread.sleep(timeout);

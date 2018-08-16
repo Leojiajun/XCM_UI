@@ -98,11 +98,43 @@ public class Tools {
             }
         }
     }
+    
+    /**
+     * 通过调用js，使光标悬浮在某个元素上方
+     *
+     * @param locator
+     */
+    public static void mouseOver(String locator,WebDriver driver) {
+        Robot rb = null;
+        try {
+            rb = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+        rb.mouseMove(0, 0);
+
+        WebElement element = findElement(locator,driver);
+        String code = "var fireOnThis = arguments[0];"
+                + "var evObj = document.createEvent('MouseEvents');"
+                + "evObj.initEvent('mouseover',true,true);"
+                + "fireOnThis.dispatchEvent(evObj);";
+        if (null != element) {
+            try {
+                ((JavascriptExecutor) driver).executeScript(code, element);
+               // logger.info("Mouse over the page element " + locator);
+            } catch (Exception e) {
+                e.printStackTrace();
+                //handleFailure("Failed to mouseover the page element " + locator);
+            }
+        }
+    }
 	
 	public static WebElement getelement(String keyname,String tablename,WebDriver driver) throws SQLException{
 		try{
+			waitForElementPresent(keyname, tablename, driver);
 			return driver.findElement(By.xpath(getdbData(keyname, tablename)));
 		}catch(NoSuchElementException e){
+			waitForElementPresent(keyname, tablename, driver);
 			return driver.findElement(By.cssSelector(getdbData(keyname, tablename)));
 		}
 		
@@ -199,5 +231,109 @@ public class Tools {
 		}	
 	}
 	
+	
+	  /**
+     * 根据元素路径，返回WebElement组件
+     *
+     * @param locator 元素路径
+     * @return WebElement
+     */
+    public static WebElement findElement(String locator,WebDriver driver) {
+        By by = parseLocator(locator);
+        WebElement element = null;
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+            element = wait.until(ExpectedConditions
+                    .presenceOfElementLocated(by));
+        } catch (Exception e) {
+            e.printStackTrace();
+//            logger.error("Can't locate the web element by the locator "
+//                    + locator);
+        }
+        return element;
+    }
+    
+    
+    /**
+     * 根据元素路径，返回WebElement组件
+     *
+     * @param locator 元素路径
+     * @return WebElement
+     */
+    public static List<WebElement> findElements(String locator,WebDriver driver) {
+        By by = parseLocator(locator);
+        List<WebElement> elements = null;
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+            elements = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+        } catch (Exception e) {
+            e.printStackTrace();
+//            logger.error("Can't locate the web element by the locator "
+//                    + locator);
+        }
+        return elements;
+    }
+    
+    
+    
+    /**
+     * 在文本输入框中输入内容
+     *
+     * @param locator
+     * @param text
+     */
+    public static void sendkeys(String locator, String text,WebDriver driver) {
+        WebElement element = findElement(locator,driver);
+        if (null != element) {
+            try {
+                element.clear();
+                element.sendKeys(text);
+               // logger.info("Type " + text + " in the page element " + locator);
+            } catch (Exception e) {
+                e.printStackTrace();
+               // handleFailure("Failed to type " + text
+                       // + " in the page element " + locator);
+            }
+        }
+    }
+    
+    
+    
+    /**
+     * 路径解析器
+     *
+     * @param locator 元素路径
+     * @return By
+     */
+	public static By parseLocator(String locator) {
+        String lowerLocator = locator.toLowerCase();
+        String actualLocator;
+        By by = null;
+        if (lowerLocator.startsWith("id=")) {
+            actualLocator = locator.substring(3);
+            by = By.id(actualLocator);
+        } else if (lowerLocator.startsWith("name=")) {
+            actualLocator = locator.substring(5);
+            by = By.name(actualLocator);
+        } else if (lowerLocator.startsWith("class=")) {
+            actualLocator = locator.substring(6);
+            by = By.className(actualLocator);
+        } else if (lowerLocator.startsWith("tag=")) {
+            actualLocator = locator.substring(4);
+            by = By.tagName(actualLocator);
+        } else if (lowerLocator.startsWith("link=")) {
+            actualLocator = locator.substring(5);
+            by = By.partialLinkText(actualLocator);
+        } else if (lowerLocator.startsWith("css=")) {
+            actualLocator = locator.substring(4);
+            by = By.cssSelector(actualLocator);
+        } else if (lowerLocator.startsWith("xpath=")) {
+            actualLocator = locator.substring(6);
+            by = By.xpath(actualLocator);
+        } else {
+            //logger.error("Format Error: id=,class=,tag=,name=,link=,css=,xpath=");
+        }
+        return by;
+    }
 
 }

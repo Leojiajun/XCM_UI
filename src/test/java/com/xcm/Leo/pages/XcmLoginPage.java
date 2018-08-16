@@ -23,6 +23,8 @@ public class XcmLoginPage extends PageBase{
 		wait.waitForElementPresent(getLocValue("username"));
 		getLoc("username").sendKeys(username);
 		getLoc("password").sendKeys(password);
-		getLoc("submit").click();
+		wait.waitFor(2000);
+		Tools.JavaScriptClick(getLoc("submit"), driver);
+		//getLoc("submit").click();
 	}
 }
