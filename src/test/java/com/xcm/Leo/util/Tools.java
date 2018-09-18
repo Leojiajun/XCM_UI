@@ -16,6 +16,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -295,6 +296,22 @@ public class Tools {
                        // + " in the page element " + locator);
             }
         }
+    }
+    
+    
+    /**
+     * 切换window
+     *
+     * @param partialTitleName 页面标题
+     */
+    public static void toSpecificWindow(String partialTitleName,WebDriver driver){
+    	Set<String> handles = driver.getWindowHandles();
+		String titlename;
+		for(String handle:handles){
+			titlename = driver.switchTo().window(handle).getTitle();
+			if(titlename.contains(partialTitleName));
+			break;
+		}	
     }
     
     
