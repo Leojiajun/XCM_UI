@@ -28,7 +28,7 @@ public class Tools {
 	public static Connection conn=null;
 	 public static ResultSet rs=null;
 	 public static int  timeout=5;
-	 public static WebDriver alldriver;
+	 //public static WebDriver alldriver;
 
 	//文本框输入内容
 	public static void input(By by,String value,WebDriver driver){

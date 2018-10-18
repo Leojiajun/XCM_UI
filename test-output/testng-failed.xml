@@ -3,15 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.xcm.Leo.integration.BaseTest">
+      <class name="testBaidu">
         <methods>
-          <include name="conect"/>
-          <include name="closeBrowser"/>
-          <include name="closeDB"/>
-          <include name="loginXCM"/>
           <include name="loadDriver"/>
+          <include name="test2"/>
         </methods>
-      </class> <!-- com.xcm.Leo.integration.BaseTest -->
+      </class> <!-- testBaidu -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
